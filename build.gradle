@@ -4,7 +4,7 @@ plugins {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'Main.Main'
+        attributes 'Main-Class': 'javabank.console.Main'
     }
 }
 
