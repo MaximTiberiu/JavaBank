@@ -70,7 +70,7 @@ public class ClientCredentials {
     }
 
     /**
-     * @return int, representind the hashCode of the ClientCredentials
+     * @return int, representing the hashCode of the ClientCredentials
      */
     @Override
     public int hashCode() {
