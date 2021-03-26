@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Bank {
-    private String bankName;
-    private BankAddress headquartersAddress;
-    private String hqTelephoneNumber;
-    private String website;
-    private ArrayList<Client> clients;
+    protected String bankName;
+    protected BankAddress headquartersAddress;
+    protected String hqTelephoneNumber;
+    protected String website;
+    private ArrayList<BankBranch> bankBranches;
 
     /**
      * Constructor that creates a new Bank
-     * @param bankName String,                  representing the name of the bank
-     * @param headquartersAddress BankAddress,  representing the address of the HQ
-     * @param hqTelephoneNumber String,         representing the telephone number of the HQ
-     * @param website String,                   representing the bank website
-     * @param clients ArrayList<Client>,        representing a list of bank's clients
+     * @param bankName String,                      representing the name of the bank
+     * @param headquartersAddress BankAddress,      representing the address of the HQ
+     * @param hqTelephoneNumber String,             representing the telephone number of the HQ
+     * @param website String,                       representing the bank website
+     * @param bankBranches ArrayList<BankBranch>,   representing a list of bank branches
      */
-    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String website, ArrayList<Client> clients) {
+    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String website, ArrayList<BankBranch> bankBranches) {
         this.bankName = bankName;
         this.headquartersAddress = headquartersAddress;
         this.hqTelephoneNumber = hqTelephoneNumber;
         this.website = website;
-        this.clients = clients;
+        this.bankBranches = bankBranches;
     }
 
     /**
@@ -83,33 +83,41 @@ public class Bank {
     }
 
     /**
-     * @return ArrayList<Client>, representing a list of bank's clients
+     * @return ArrayList<BankBranch>, representing a list of bank's clients
      */
-    public ArrayList<Client> getClients() {
-        return clients;
+    public ArrayList<BankBranch> getBankBranches() {
+        return bankBranches;
     }
 
     /**
-     * @param clients ArrayList<Client>, representing a list of bank's clients
+     * @param bankBranches ArrayList<BankBranch>, representing a list of bank's clients
      */
-    public void setClients(ArrayList<Client> clients) {
-        this.clients = clients;
+    public void setBankBranches(ArrayList<BankBranch> bankBranches) {
+        this.bankBranches = bankBranches;
     }
 
     /**
-     *
-     * @return String, representing the serialization of a Bank
+     * @return String, representing the serialization of a Bank | TODO: Implement Serialization
      */
     @Override
     public String toString() {
-        return bankName + "\n" + headquartersAddress.toString() + "\n" + "Telephone Number: " + hqTelephoneNumber
-                + ", Website: " + website;
+        return "Bank{" +
+                "bankName='" + bankName + '\'' +
+                ", headquartersAddress=" + headquartersAddress +
+                ", hqTelephoneNumber='" + hqTelephoneNumber + '\'' +
+                ", website='" + website + '\'' +
+                ", bankBranches=" + bankBranches +
+                '}';
     }
 
     /**
      * Method that verifies if two Bank objects are equal
      * @param obj Object, representing the Object to be verified
-     * @return  true,   if --
+     * @return  true,   if the bankName of the Bank is equal to the bankName of the Object,
+     *                  the headquartersAddress of the Bank is equal to the headquartersAddress of the Object,
+     *                  the hqTelephoneNumber of the Bank is equal to the hqTelephoneNumber of the Object,
+     *                  the website of the Bank is equal to the website of the Object,
+     *                  and the bankBranches list of the Bank is equal to the bankBranches list of the Object
      *          false,  otherwise
      */
     @Override
@@ -117,9 +125,8 @@ public class Bank {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Bank that = (Bank) obj;
-        return bankName.equals(that.bankName) && headquartersAddress.equals(that.headquartersAddress)
-                && hqTelephoneNumber.equals(that.hqTelephoneNumber) && website.equals(that.website)
-                && clients.equals(that.clients);
+        return bankName.equals(that.bankName) && headquartersAddress.equals(that.headquartersAddress)  && hqTelephoneNumber.equals(that.hqTelephoneNumber)
+                && website.equals(that.website) && bankBranches.equals(that.bankBranches);
     }
 
     /**
@@ -128,6 +135,6 @@ public class Bank {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(bankName, headquartersAddress, hqTelephoneNumber, website, clients);
+        return Objects.hash(bankName, headquartersAddress, hqTelephoneNumber, website, bankBranches);
     }
 }
