@@ -45,7 +45,7 @@ public class ClientCredentials {
     }
 
     /**
-     * @return String, representing the serialization of a ClientCredentials
+     * @return String, representing the serialization of a ClientCredentials | TODO: Implement Serialization
      */
     @Override
     public String toString() {
@@ -57,9 +57,9 @@ public class ClientCredentials {
 
     /**
      * @param obj Object, representing the Object to be verified
-     * @return  true, if the username of the Client is equal to the username of the Object
-     *                and the password of the Client is equal to the password of the Object
-     *          false, otherwise
+     * @return  true,   if the username of the Client is equal to the username of the Object
+     *                  and the password of the Client is equal to the password of the Object
+     *          false,  otherwise
      */
     @Override
     public boolean equals(Object obj) {

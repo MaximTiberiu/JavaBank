@@ -22,8 +22,7 @@ public class Client {
      * @param credentials ClientCredentials,        representing the Client's credentials
      * @param bankAccounts ArrayList<BankAccount>,  representing a list of Client's bank accounts
      */
-    public Client(String firstName, String lastName, String CNP, String telephoneNumber, String email,
-                  ClientCredentials credentials, ArrayList<BankAccount> bankAccounts) {
+    public Client(String firstName, String lastName, String CNP, String telephoneNumber, String email, ClientCredentials credentials, ArrayList<BankAccount> bankAccounts) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.CNP = CNP;
@@ -132,7 +131,7 @@ public class Client {
     }
 
     /**
-     * @return String, representing the serialization of a Client
+     * @return String, representing the serialization of a Client | TODO: Implement Serialization
      */
     @Override
     public String toString() {
@@ -149,17 +148,22 @@ public class Client {
 
     /**
      * @param obj Object, representing the Object to be verified
-     * @return  true, if --
-     *          false, otherwise
+     * @return  true,   if the firstName of the Client is equal to the firstName of the Object,
+     *                  the lastName of the Client is equal to the lastName of the Object,
+     *                  the CNP of the Client is equal to the CNP of the Object,
+     *                  the telephoneNumber of the Client is equal to the telephoneNumber of the Object,
+     *                  the email of the Client is equal to the email of the Object,
+     *                  the credentials of the Client is equal to the credentials of the Object,
+     *                  the bankAccounts list of Client is equal to the bankAccounts list of the Object
+     *          false,  otherwise
      */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Client that = (Client) obj;
-        return firstName.equals(that.firstName) && lastName.equals(that.lastName) && CNP.equals(that.CNP)
-                && telephoneNumber.equals(that.telephoneNumber) && Objects.equals(email, that.email)
-                && credentials.equals(that.credentials) && bankAccounts.equals(that.bankAccounts);
+        return firstName.equals(that.firstName) && lastName.equals(that.lastName) && CNP.equals(that.CNP) && telephoneNumber.equals(that.telephoneNumber)
+                && Objects.equals(email, that.email) && credentials.equals(that.credentials) && bankAccounts.equals(that.bankAccounts);
     }
 
     /**
