@@ -36,7 +36,7 @@ public class BankAddress {
     }
 
     /**
-     * @param streetName String, representing the street name where the bank is located
+     * @param streetName String, representing the new street name where the bank is located
      */
     public void setStreetName(String streetName) {
         this.streetName = streetName;
@@ -50,7 +50,7 @@ public class BankAddress {
     }
 
     /**
-     * @param number int, representing the number of the bank building
+     * @param number int, representing the new number of the bank building
      */
     public void setNumber(int number) {
         this.number = number;
@@ -64,7 +64,7 @@ public class BankAddress {
     }
 
     /**
-     * @param cityName String, representing the name of the city where the bank is located
+     * @param cityName String, representing the new name of the city where the bank is located
      */
     public void setCityName(String cityName) {
         this.cityName = cityName;
@@ -78,7 +78,7 @@ public class BankAddress {
     }
 
     /**
-     * @param countyName String, representing the county name where the bank is located
+     * @param countyName String, representing the new county name where the bank is located
      */
     public void setCountyName(String countyName) {
         this.countyName = countyName;
@@ -92,7 +92,7 @@ public class BankAddress {
     }
 
     /**
-     * @param postalCode int, representing the postal code of the bank
+     * @param postalCode int, representing the new postal code of the bank
      */
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
@@ -106,7 +106,7 @@ public class BankAddress {
     }
 
     /**
-     * @param countryName String, representing the country name where the bank is located
+     * @param countryName String, representing the new country name where the bank is located
      */
     public void setCountryName(String countryName) {
         this.countryName = countryName;

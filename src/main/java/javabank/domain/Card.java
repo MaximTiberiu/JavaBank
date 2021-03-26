@@ -34,7 +34,7 @@ public class Card {
     }
 
     /**
-     * @param cardNumber String, representing the card number of the Card
+     * @param cardNumber String, representing the new card number of the Card
      */
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
@@ -48,7 +48,7 @@ public class Card {
     }
 
     /**
-     * @param cardHolder String, representing the name of the Card's holder
+     * @param cardHolder String, representing the new name of the Card's holder
      */
     public void setCardHolder(String cardHolder) {
         this.cardHolder = cardHolder;
@@ -62,7 +62,7 @@ public class Card {
     }
 
     /**
-     * @param validThru Date, representing the expiry dat of the Card
+     * @param validThru Date, representing the new expiry dat of the Card
      */
     public void setValidThru(Date validThru) {
         this.validThru = validThru;
@@ -76,7 +76,7 @@ public class Card {
     }
 
     /**
-     * @param cvvCode int, representing the CVV code of the Card
+     * @param cvvCode int, representing the new CVV code of the Card
      */
     public void setCvvCode(int cvvCode) {
         this.cvvCode = cvvCode;
@@ -90,7 +90,7 @@ public class Card {
     }
 
     /**
-     * @param PIN int, representing the PIN code of the Card
+     * @param PIN int, representing the new PIN code of the Card
      */
     public void setPIN(int PIN) {
         this.PIN = PIN;

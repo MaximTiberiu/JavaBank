@@ -34,7 +34,7 @@ public class Bank {
     }
 
     /**
-     * @param bankName String, representing the name of the bank
+     * @param bankName String, representing the new name of the bank
      */
     public void setBankName(String bankName) {
         this.bankName = bankName;
@@ -48,7 +48,7 @@ public class Bank {
     }
 
     /**
-     * @param headquartersAddress BankAddress, representing the address of the HQ
+     * @param headquartersAddress BankAddress, representing the new address of the HQ
      */
     public void setHeadquartersAddress(BankAddress headquartersAddress) {
         this.headquartersAddress = headquartersAddress;
@@ -62,7 +62,7 @@ public class Bank {
     }
 
     /**
-     * @param hqTelephoneNumber String, representing the telephone number of the HQ
+     * @param hqTelephoneNumber String, representing the new telephone number of the HQ
      */
     public void setTelephoneNumber(String hqTelephoneNumber) {
         this.hqTelephoneNumber = hqTelephoneNumber;
@@ -76,7 +76,7 @@ public class Bank {
     }
 
     /**
-     * @param website String, representing the bank website
+     * @param website String, representing the new bank website
      */
     public void setWebsite(String website) {
         this.website = website;
@@ -90,7 +90,7 @@ public class Bank {
     }
 
     /**
-     * @param bankBranches ArrayList<BankBranch>, representing a list of bank's clients
+     * @param bankBranches ArrayList<BankBranch>, representing a new list of bank's clients
      */
     public void setBankBranches(ArrayList<BankBranch> bankBranches) {
         this.bankBranches = bankBranches;

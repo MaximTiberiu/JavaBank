@@ -40,7 +40,7 @@ public class Client {
     }
 
     /**
-     * @param firstName String, representing the first name of the Client
+     * @param firstName String, representing the new first name of the Client
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -54,7 +54,7 @@ public class Client {
     }
 
     /**
-     * @param lastName String, representing the last name of the Client
+     * @param lastName String, representing the new last name of the Client
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -68,7 +68,7 @@ public class Client {
     }
 
     /**
-     * @param CNP String, representing the CNP (Identity Card) of the Client
+     * @param CNP String, representing the new CNP (Identity Card) of the Client
      */
     public void setCNP(String CNP) {
         this.CNP = CNP;
@@ -82,7 +82,7 @@ public class Client {
     }
 
     /**
-     * @param telephoneNumber String, representing the telephone number of the Client
+     * @param telephoneNumber String, representing the new telephone number of the Client
      */
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
@@ -96,7 +96,7 @@ public class Client {
     }
 
     /**
-     * @param email String, representing the email address of the Client
+     * @param email String, representing the new email address of the Client
      */
     public void setEmail(String email) {
         this.email = email;
@@ -110,7 +110,7 @@ public class Client {
     }
 
     /**
-     * @param credentials ClientCredentials, representing the Client's credentials
+     * @param credentials ClientCredentials, representing the new Client's credentials
      */
     public void setCredentials(ClientCredentials credentials) {
         this.credentials = credentials;
@@ -124,7 +124,7 @@ public class Client {
     }
 
     /**
-     * @param bankAccounts ArrayList<BankAccount>, representing a list of Client's bank accounts
+     * @param bankAccounts ArrayList<BankAccount>, representing a new list of Client's bank accounts
      */
     public void setBankAccounts(ArrayList<BankAccount> bankAccounts) {
         this.bankAccounts = bankAccounts;

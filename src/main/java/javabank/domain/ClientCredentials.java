@@ -24,7 +24,7 @@ public class ClientCredentials {
     }
 
     /**
-     * @param username String, representing the username of the Client
+     * @param username String, representing the new username of the Client
      */
     public void setUsername(String username) {
         this.username = username;
@@ -38,7 +38,7 @@ public class ClientCredentials {
     }
 
     /**
-     * @param password String, representing the password of the Client
+     * @param password String, representing the new password of the Client
      */
     public void setPassword(String password) {
         this.password = password;

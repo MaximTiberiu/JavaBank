@@ -34,7 +34,7 @@ public class BankBranch {
     }
 
     /**
-     * @param bicCode String, representing the BIC Code of the BankBranch
+     * @param bicCode String, representing the new BIC Code of the BankBranch
      */
     public void setBicCode(String bicCode) {
         this.bicCode = bicCode;
@@ -48,7 +48,7 @@ public class BankBranch {
     }
 
     /**
-     * @param swiftCode String, representing the SWIFT Code of the BankBranch
+     * @param swiftCode String, representing the new SWIFT Code of the BankBranch
      */
     public void setSwiftCode(String swiftCode) {
         this.swiftCode = swiftCode;
@@ -62,7 +62,7 @@ public class BankBranch {
     }
 
     /**
-     * @param bankAddress BankAddress, representing the address of the BankBranch
+     * @param bankAddress BankAddress, representing the new address of the BankBranch
      */
     public void setBankAddress(BankAddress bankAddress) {
         this.bankAddress = bankAddress;
@@ -76,7 +76,7 @@ public class BankBranch {
     }
 
     /**
-     * @param bankTelephoneNumber String, representing the telephone number of the BankBranch
+     * @param bankTelephoneNumber String, representing the new telephone number of the BankBranch
      */
     public void setBankTelephoneNumber(String bankTelephoneNumber) {
         this.bankTelephoneNumber = bankTelephoneNumber;
@@ -90,7 +90,7 @@ public class BankBranch {
     }
 
     /**
-     * @param clients ArrayList<Client>, representing a list of the bank's clients
+     * @param clients ArrayList<Client>, representing a new list of the bank's clients
      */
     public void setClients(ArrayList<Client> clients) {
         this.clients = clients;
