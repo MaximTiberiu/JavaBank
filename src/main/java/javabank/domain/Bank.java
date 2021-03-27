@@ -7,21 +7,31 @@ public class Bank {
     protected String bankName;
     protected BankAddress headquartersAddress;
     protected String hqTelephoneNumber;
+    protected String hqEmail;
     protected String website;
     private ArrayList<BankBranch> bankBranches;
+
+    /**
+     * Default constructor that creates a new Bank
+     */
+    public Bank() {
+
+    }
 
     /**
      * Constructor that creates a new Bank
      * @param bankName String,                      representing the name of the bank
      * @param headquartersAddress BankAddress,      representing the address of the HQ
      * @param hqTelephoneNumber String,             representing the telephone number of the HQ
+     * @param hqEmail String,                       representing the email address of the HQ
      * @param website String,                       representing the bank website
      * @param bankBranches ArrayList<BankBranch>,   representing a list of bank branches
      */
-    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String website, ArrayList<BankBranch> bankBranches) {
+    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String hqEmail, String website, ArrayList<BankBranch> bankBranches) {
         this.bankName = bankName;
         this.headquartersAddress = headquartersAddress;
         this.hqTelephoneNumber = hqTelephoneNumber;
+        this.hqEmail = hqEmail;
         this.website = website;
         this.bankBranches = bankBranches;
     }
@@ -55,17 +65,24 @@ public class Bank {
     }
 
     /**
-     * @return String, representing the telephone number of the HQ
+     * @param hqTelephoneNumber String, representing the new telephone number of the HQ
      */
-    public String getTelephoneNumber() {
-        return hqTelephoneNumber;
+    public void setHqTelephoneNumber(String hqTelephoneNumber) {
+        this.hqTelephoneNumber = hqTelephoneNumber;
     }
 
     /**
-     * @param hqTelephoneNumber String, representing the new telephone number of the HQ
+     * @return String, representing the email address of the HQ
      */
-    public void setTelephoneNumber(String hqTelephoneNumber) {
-        this.hqTelephoneNumber = hqTelephoneNumber;
+    public String getHqEmail() {
+        return hqEmail;
+    }
+
+    /**
+     * @param hqEmail String, representing the new email address of the HQ
+     */
+    public void setHqEmail(String hqEmail) {
+        this.hqEmail = hqEmail;
     }
 
     /**
@@ -105,6 +122,7 @@ public class Bank {
                 "bankName='" + bankName + '\'' +
                 ", headquartersAddress=" + headquartersAddress +
                 ", hqTelephoneNumber='" + hqTelephoneNumber + '\'' +
+                ", hqEmail='" + hqEmail + '\'' +
                 ", website='" + website + '\'' +
                 ", bankBranches=" + bankBranches +
                 '}';
@@ -116,6 +134,7 @@ public class Bank {
      * @return  true,   if the bankName of the Bank is equal to the bankName of the Object,
      *                  the headquartersAddress of the Bank is equal to the headquartersAddress of the Object,
      *                  the hqTelephoneNumber of the Bank is equal to the hqTelephoneNumber of the Object,
+     *                  the hqEmail of the Bank is equal to the hqEmail of the Object,
      *                  the website of the Bank is equal to the website of the Object,
      *                  and the bankBranches list of the Bank is equal to the bankBranches list of the Object
      *          false,  otherwise
@@ -126,7 +145,7 @@ public class Bank {
         if (obj == null || getClass() != obj.getClass()) return false;
         Bank that = (Bank) obj;
         return bankName.equals(that.bankName) && headquartersAddress.equals(that.headquartersAddress)  && hqTelephoneNumber.equals(that.hqTelephoneNumber)
-                && website.equals(that.website) && bankBranches.equals(that.bankBranches);
+                && hqEmail.equals(that.hqEmail) && website.equals(that.website) && bankBranches.equals(that.bankBranches);
     }
 
     /**
@@ -135,6 +154,6 @@ public class Bank {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(bankName, headquartersAddress, hqTelephoneNumber, website, bankBranches);
+        return Objects.hash(bankName, headquartersAddress, hqTelephoneNumber, hqEmail, website, bankBranches);
     }
 }

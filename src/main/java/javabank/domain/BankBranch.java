@@ -8,6 +8,7 @@ public class BankBranch {
     private String swiftCode;
     private BankAddress bankAddress;
     private String bankTelephoneNumber;
+    private String bankEmail;
     private ArrayList<Client> clients;
 
     /**
@@ -16,13 +17,15 @@ public class BankBranch {
      * @param swiftCode String,             representing the SWIFT Code of the BankBranch
      * @param bankAddress BankAddress,      representing the address of the BankBranch
      * @param bankTelephoneNumber String,   representing the telephone number of the BankBranch
+     * @param bankEmail String,             representing the email address of the BankBranch
      * @param clients ArrayList<Client>,    representing a list of the bank's clients
      */
-    public BankBranch(String bicCode, String swiftCode, BankAddress bankAddress, String bankTelephoneNumber, ArrayList<Client> clients) {
+    public BankBranch(String bicCode, String swiftCode, BankAddress bankAddress, String bankTelephoneNumber, String bankEmail,ArrayList<Client> clients) {
         this.bicCode = bicCode;
         this.swiftCode = swiftCode;
         this.bankAddress = bankAddress;
         this.bankTelephoneNumber = bankTelephoneNumber;
+        this.bankEmail = bankEmail;
         this.clients = clients;
     }
 
@@ -83,6 +86,20 @@ public class BankBranch {
     }
 
     /**
+     * @return String, representing the email address of the BankBranch
+     */
+    public String getBankEmail() {
+        return bankEmail;
+    }
+
+    /**
+     * @param bankEmail String, representing the new email address of the BankBranch
+     */
+    public void setBankEmail(String bankEmail) {
+        this.bankEmail = bankEmail;
+    }
+
+    /**
      * @return ArrayList<Client>, representing a list of the bank's clients
      */
     public ArrayList<Client> getClients() {
@@ -106,6 +123,7 @@ public class BankBranch {
                 ", swiftCode='" + swiftCode + '\'' +
                 ", bankAddress=" + bankAddress +
                 ", bankTelephoneNumber='" + bankTelephoneNumber + '\'' +
+                ", bankEmail='" + bankEmail + '\'' +
                 ", clients=" + clients +
                 '}';
     }
@@ -117,6 +135,7 @@ public class BankBranch {
      *                  the swiftCode of the BankBranch is equal to the swiftCode of the Object,
      *                  the bankAddress of the BankBranch is equal to the bankAddress of the Object,
      *                  the bankTelephoneNumber of the BankBranch is equal to the bankTelephoneNumber of the Object,
+     *                  the bankEmail of the BankBranch is equal to the bankEmail of the Object,
      *                  and the clients list of the BankBranch is equal to the clients list of the Object
      *          false,  otherwise
      */
@@ -126,7 +145,7 @@ public class BankBranch {
         if (obj == null || getClass() != obj.getClass()) return false;
         BankBranch that = (BankBranch) obj;
         return bicCode.equals(that.bicCode) && swiftCode.equals(that.swiftCode) && bankAddress.equals(that.bankAddress) && bankTelephoneNumber.equals(that.bankTelephoneNumber)
-                && Objects.equals(clients, that.clients);
+                && bankEmail.equals(that.bankEmail) && Objects.equals(clients, that.clients);
     }
 
     /**
@@ -135,6 +154,6 @@ public class BankBranch {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(bicCode, swiftCode, bankAddress, bankTelephoneNumber, clients);
+        return Objects.hash(bicCode, swiftCode, bankAddress, bankTelephoneNumber, bankEmail, clients);
     }
 }
