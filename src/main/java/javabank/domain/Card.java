@@ -14,7 +14,7 @@ public class Card {
      * Constructor that creates a new Card
      * @param cardNumber String,    representing the card number of the Card
      * @param cardHolder String,    representing the name of the Card's holder
-     * @param validThru Date,       representing the expiry dat of the Card
+     * @param validThru Date,       representing the expiry date of the Card
      * @param cvvCode int,          representing the CVV code of the Card
      * @param PIN int,              representing the PIN code of the Card
      */
