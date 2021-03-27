@@ -36,13 +36,7 @@ public class BankReader implements Reader<Bank>{
         System.out.print("Website: ");
         website = bufferedReader.readLine();
 
-        Bank bank = new Bank();
-        bank.setBankName(bankName);
-        bank.setHeadquartersAddress(headquartersAddress);
-        bank.setHqTelephoneNumber(hqTelephoneNumber);
-        bank.setHqEmail(hqEmail);
-        bank.setWebsite(website);
         ArrayList<BankBranch> bankBranches = new ArrayList<BankBranch>();
-        return bank;
+        return new Bank(bankName, headquartersAddress, hqTelephoneNumber, hqEmail, website, bankBranches);
     }
 }
