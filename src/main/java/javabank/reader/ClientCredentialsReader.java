@@ -10,10 +10,9 @@ public class ClientCredentialsReader implements Reader<ClientCredentials> {
      * Method that reads a ClientCredentials from System.in
      * @return ClientCredentials, representing the read ClientCredentials
      * @throws IOException, representing an exception
-     * @throws ParseException, representing an exception
      */
     @Override
-    public ClientCredentials read() throws IOException, ParseException {
+    public ClientCredentials read() throws IOException {
         System.out.println("Please introduce client credentials!");
         String username;
         System.out.print("Username: ");
