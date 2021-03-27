@@ -13,6 +13,7 @@ public class CardReader implements Reader<Card>{
      * Method that reads a Card from System.in
      * @return Card, representing the read Card
      * @throws IOException, representing an exception
+     * @throws ParseException, representing an exception
      */
     @Override
     public Card read() throws IOException, ParseException {
