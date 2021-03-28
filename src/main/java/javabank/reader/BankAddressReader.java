@@ -13,6 +13,8 @@ public class BankAddressReader implements Reader<BankAddress>{
     @Override
     public BankAddress read() throws IOException {
         System.out.println("Please introduce the bank address! ");
+        Long idBankAddress = new ReaderID().read();
+
         String streetName;
         System.out.print("Street name: ");
         streetName = bufferedReader.readLine();
@@ -37,6 +39,8 @@ public class BankAddressReader implements Reader<BankAddress>{
         System.out.print("Country: ");
         countryName = bufferedReader.readLine();
 
-        return new BankAddress(streetName, number, cityName, countyName, postalCode, countryName);
+        BankAddress bankAddress = new BankAddress(streetName, number, cityName, countyName, postalCode, countryName);
+        bankAddress.setId(idBankAddress);
+        return bankAddress;
     }
 }

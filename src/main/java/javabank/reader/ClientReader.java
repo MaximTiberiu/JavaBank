@@ -16,6 +16,8 @@ public class ClientReader implements Reader<Client>{
     @Override
     public Client read() throws IOException {
         System.out.println("Please introduce client details!");
+        Long idClient = new ReaderID().read();
+
         String firstName;
         System.out.print("First name: ");
         firstName = bufferedReader.readLine();
@@ -41,6 +43,9 @@ public class ClientReader implements Reader<Client>{
         credentials = clientCredentialsReader.read();
 
         ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
-        return new Client(firstName, lastName, CNP, telephoneNumber, email, credentials, bankAccounts);
+
+        Client client = new Client(firstName, lastName, CNP, telephoneNumber, email, credentials, bankAccounts);
+        client.setId(idClient);
+        return client;
     }
 }

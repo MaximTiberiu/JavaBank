@@ -50,7 +50,7 @@ public class Tuple<E1, E2> {
     }
 
     /**
-     * @return String, representing the serialization of a Tuple | TODO: Implement Serialization
+     * @return String, representing the serialization of a Tuple
      */
     @Override
     public String toString() {

@@ -16,6 +16,8 @@ public class BankBranchReader implements Reader<BankBranch> {
     @Override
     public BankBranch read() throws IOException {
         System.out.println("Please introduce bank branch details!");
+        Long idBankBranch = new ReaderID().read();
+
         String bicCode;
         System.out.print("BIC Code: ");
         bicCode = bufferedReader.readLine();
@@ -38,6 +40,8 @@ public class BankBranchReader implements Reader<BankBranch> {
 
         ArrayList<Client> clients = new ArrayList<Client>();
 
-        return new BankBranch(bicCode, swiftCode, bankAddress, bankTelephoneNumber, bankEmail, clients);
+        BankBranch bankBranch =  new BankBranch(bicCode, swiftCode, bankAddress, bankTelephoneNumber, bankEmail, clients);
+        bankBranch.setId(idBankBranch);
+        return bankBranch;
     }
 }

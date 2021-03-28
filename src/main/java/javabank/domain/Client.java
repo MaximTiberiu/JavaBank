@@ -3,7 +3,7 @@ package javabank.domain;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Client {
+public class Client extends Entity<Long> {
     private String firstName;
     private String lastName;
     private String CNP;
@@ -131,12 +131,13 @@ public class Client {
     }
 
     /**
-     * @return String, representing the serialization of a Client | TODO: Implement Serialization
+     * @return String, representing the serialization of a Client
      */
     @Override
     public String toString() {
         return "Client{" +
-                "firstName='" + firstName + '\'' +
+                "ID='" + getId() + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", CNP='" + CNP + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
@@ -154,7 +155,7 @@ public class Client {
      *                  the telephoneNumber of the Client is equal to the telephoneNumber of the Object,
      *                  the email of the Client is equal to the email of the Object,
      *                  the credentials of the Client is equal to the credentials of the Object,
-     *                  the bankAccounts list of Client is equal to the bankAccounts list of the Object
+     *                  and the bankAccounts list of Client is equal to the bankAccounts list of the Object
      *          false,  otherwise
      */
     @Override

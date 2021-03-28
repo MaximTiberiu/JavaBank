@@ -2,7 +2,7 @@ package javabank.domain;
 
 import java.util.Objects;
 
-public class ClientCredentials {
+public class ClientCredentials extends Entity<Long>{
     private String username;
     private String password;
 
@@ -45,12 +45,13 @@ public class ClientCredentials {
     }
 
     /**
-     * @return String, representing the serialization of a ClientCredentials | TODO: Implement Serialization
+     * @return String, representing the serialization of a ClientCredentials
      */
     @Override
     public String toString() {
         return "ClientCredentials{" +
-                "username='" + username + '\'' +
+                "ID='" + getId() + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

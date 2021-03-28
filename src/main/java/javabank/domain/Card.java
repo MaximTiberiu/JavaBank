@@ -3,7 +3,7 @@ package javabank.domain;
 import java.util.Date;
 import java.util.Objects;
 
-public class Card {
+public class Card extends Entity<Long>{
     private String cardNumber;
     private String cardHolder;
     private Date validThru;
@@ -97,12 +97,13 @@ public class Card {
     }
 
     /**
-     * @return String, representing the serialization of a Card | TODO: Implement Serialization
+     * @return String, representing the serialization of a Card
      */
     @Override
     public String toString() {
         return "Card{" +
-                "cardNumber='" + cardNumber + '\'' +
+                "ID='" + getId() + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
                 ", cardHolder='" + cardHolder + '\'' +
                 ", validThru=" + validThru +
                 ", cvvCode=" + cvvCode +
@@ -111,7 +112,7 @@ public class Card {
     }
 
     /**
-     * Method that verifies if two Bank objects are equal
+     * Method that verifies if two Card objects are equal
      * @param obj Object, representing the Object to be verified
      * @return  true,   if the cvvCode of the Card is equal to the cvvCode of the Object,
      *                  the PIN of the Card is equal to the PIN of the Object,

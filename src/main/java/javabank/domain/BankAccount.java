@@ -1,26 +1,26 @@
 package javabank.domain;
 
-import javabank.domain.banking.operations.Operations;
+import javabank.domain.banking.operations.Operation;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class BankAccount {
+public class BankAccount extends Entity<Long>{
     private String ibanCode;
     private double balance;
     private ArrayList<Card> validCards;
-    private ArrayList<Operations> validOperations;
-    private ArrayList<BankingOperation> bankingOperations;
+    private ArrayList<Operation> validOperations;
+    private ArrayList<Tuple<Operation, Card>> bankingOperations;
 
     /**
      * Constructor that creates a new BankAccount
-     * @param ibanCode String,                                  representing the IBAN code of the BankAccount
-     * @param balance double,                                   representing the balance of the BankAccount
-     * @param validCards ArrayList<Card>,                       representing a list of valid cards associated with the BankAccount
-     * @param validOperations ArrayList<Operations>,            representing a list of valid operations associated with the BankAccount
-     * @param bankingOperations ArrayList<BankingOperation>,    representing a list of performed BankingOperation (history of BankingOperations) by the Client
+     * @param ibanCode String,                                      representing the IBAN code of the BankAccount
+     * @param balance double,                                       representing the balance of the BankAccount
+     * @param validCards ArrayList<Card>,                           representing a list of valid cards associated with the BankAccount
+     * @param validOperations ArrayList<Operations>,                representing a list of valid operations associated with the BankAccount
+     * @param bankingOperations ArrayList<Tuple<Operation, Card>>,  representing a list of performed BankingOperation (history of BankingOperations) by the Client
      */
-    public BankAccount(String ibanCode, double balance, ArrayList<Card> validCards, ArrayList<Operations> validOperations, ArrayList<BankingOperation> bankingOperations) {
+    public BankAccount(String ibanCode, double balance, ArrayList<Card> validCards, ArrayList<Operation> validOperations, ArrayList<Tuple<Operation, Card>> bankingOperations) {
         this.ibanCode = ibanCode;
         this.balance = balance;
         this.validCards = validCards;
@@ -73,38 +73,39 @@ public class BankAccount {
     /**
      * @return ArrayList<Operations>, representing a list of valid operations associated with the BankAccount
      */
-    public ArrayList<Operations> getValidOperations() {
+    public ArrayList<Operation> getValidOperations() {
         return validOperations;
     }
 
     /**
      * @param validOperations ArrayList<Operations>, representing a new list of valid operations associated with the BankAccount
      */
-    public void setValidOperations(ArrayList<Operations> validOperations) {
+    public void setValidOperations(ArrayList<Operation> validOperations) {
         this.validOperations = validOperations;
     }
 
     /**
-     * @return ArrayList<BankingOperation>, representing a list of performed BankingOperation (history of BankingOperations) by the Client
+     * @return ArrayList<Tuple<Operation, Card>>, representing a list of performed BankingOperation (history of BankingOperations) by the Client
      */
-    public ArrayList<BankingOperation> getBankingOperations() {
+    public ArrayList<Tuple<Operation, Card>> getBankingOperations() {
         return bankingOperations;
     }
 
     /**
-     * @param bankingOperations ArrayList<BankingOperation>, representing a new list of performed BankingOperation (history of BankingOperations) by the Client
+     * @param bankingOperations ArrayList<Tuple<Operation, Card>>, representing a new list of performed BankingOperation (history of BankingOperations) by the Client
      */
-    public void setBankingOperations(ArrayList<BankingOperation> bankingOperations) {
+    public void setBankingOperations(ArrayList<Tuple<Operation, Card>> bankingOperations) {
         this.bankingOperations = bankingOperations;
     }
 
     /**
-     * @return String, representing the serialization of a BankAccount | TODO: Implement Serialization
+     * @return String, representing the serialization of a BankAccount
      */
     @Override
     public String toString() {
         return "BankAccount{" +
-                "ibanCode='" + ibanCode + '\'' +
+                "ID='" + getId() + '\'' +
+                ", ibanCode='" + ibanCode + '\'' +
                 ", valance='" + balance + '\'' +
                 ", validCards=" + validCards +
                 ", validOperations=" + validOperations +

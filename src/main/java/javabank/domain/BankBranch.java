@@ -3,7 +3,7 @@ package javabank.domain;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class BankBranch {
+public class BankBranch extends Entity<Long>{
     private String bicCode;
     private String swiftCode;
     private BankAddress bankAddress;
@@ -114,12 +114,13 @@ public class BankBranch {
     }
 
     /**
-     * @return String, representing the serialization of a BankBranch  | TODO: Implement Serialization
+     * @return String, representing the serialization of a BankBranch
      */
     @Override
     public String toString() {
         return "BankBranch{" +
-                "bicCode='" + bicCode + '\'' +
+                "ID='" + getId() + '\'' +
+                ", bicCode='" + bicCode + '\'' +
                 ", swiftCode='" + swiftCode + '\'' +
                 ", bankAddress=" + bankAddress +
                 ", bankTelephoneNumber='" + bankTelephoneNumber + '\'' +

@@ -16,6 +16,8 @@ public class BankReader implements Reader<Bank>{
     @Override
     public Bank read() throws IOException {
         System.out.println("Please introduce bank details!");
+        Long idBank = new ReaderID().read();
+
         String bankName;
         System.out.print("Bank name: ");
         bankName = bufferedReader.readLine();
@@ -37,6 +39,9 @@ public class BankReader implements Reader<Bank>{
         website = bufferedReader.readLine();
 
         ArrayList<BankBranch> bankBranches = new ArrayList<BankBranch>();
-        return new Bank(bankName, headquartersAddress, hqTelephoneNumber, hqEmail, website, bankBranches);
+
+        Bank bank = new Bank(bankName, headquartersAddress, hqTelephoneNumber, hqEmail, website, bankBranches);
+        bank.setId(idBank);
+        return bank;
     }
 }

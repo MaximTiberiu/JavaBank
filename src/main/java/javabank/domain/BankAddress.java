@@ -2,7 +2,7 @@ package javabank.domain;
 
 import java.util.Objects;
 
-public class BankAddress {
+public class BankAddress extends Entity<Long>{
     private String streetName;
     private int number;
     private String cityName;
@@ -114,12 +114,13 @@ public class BankAddress {
 
     /**
      *
-     * @return String, representing the serialization of a BankAddress  | TODO: Implement Serialization
+     * @return String, representing the serialization of a BankAddress
      */
     @Override
     public String toString() {
         return "BankAddress{" +
-                "streetName='" + streetName + '\'' +
+                "ID='" + getId() + '\'' +
+                ", streetName='" + streetName + '\'' +
                 ", number=" + number +
                 ", cityName='" + cityName + '\'' +
                 ", countyName='" + countyName + '\'' +

@@ -14,6 +14,8 @@ public class ClientCredentialsReader implements Reader<ClientCredentials> {
     @Override
     public ClientCredentials read() throws IOException {
         System.out.println("Please introduce client credentials!");
+        Long idClientCredentials = new ReaderID().read();
+
         String username;
         System.out.print("Username: ");
         username = bufferedReader.readLine();
@@ -21,6 +23,9 @@ public class ClientCredentialsReader implements Reader<ClientCredentials> {
         String password;
         System.out.print("Password: ");
         password = bufferedReader.readLine();
-        return new ClientCredentials(username, password);
+
+        ClientCredentials clientCredentials = new ClientCredentials(username, password);
+        clientCredentials.setId(idClientCredentials);
+        return clientCredentials;
     }
 }

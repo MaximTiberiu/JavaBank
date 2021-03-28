@@ -18,6 +18,8 @@ public class CardReader implements Reader<Card>{
     @Override
     public Card read() throws IOException, ParseException {
         System.out.println("Please introduce card details!");
+        Long idCard = new ReaderID().read();
+
         String cardNumber;
         System.out.print("Card number: ");
         cardNumber = bufferedReader.readLine();
@@ -40,6 +42,9 @@ public class CardReader implements Reader<Card>{
         int PIN;
         System.out.print("PIN: ");
         PIN = Integer.parseInt(bufferedReader.readLine());
-        return new Card(cardNumber, cardHolder, validThru, cvvCode, PIN);
+
+        Card card = new Card(cardNumber, cardHolder, validThru, cvvCode, PIN);
+        card.setId(idCard);
+        return card;
     }
 }

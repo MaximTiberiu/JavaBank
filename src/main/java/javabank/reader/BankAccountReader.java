@@ -1,9 +1,9 @@
 package javabank.reader;
 
 import javabank.domain.BankAccount;
-import javabank.domain.BankingOperation;
 import javabank.domain.Card;
-import javabank.domain.banking.operations.Operations;
+import javabank.domain.Tuple;
+import javabank.domain.banking.operations.Operation;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +19,8 @@ public class BankAccountReader implements Reader<BankAccount> {
     @Override
     public BankAccount read() throws IOException {
         System.out.println("Please introduce the bank account details!");
+        Long idBankAccount = new ReaderID().read();
+
         String ibanCode;
         System.out.print("IBAN Code: ");
         ibanCode = bufferedReader.readLine();
@@ -28,9 +30,11 @@ public class BankAccountReader implements Reader<BankAccount> {
         balance = Double.parseDouble(bufferedReader.readLine());
 
         ArrayList<Card> validCards = new ArrayList<Card>();
-        ArrayList<Operations> validOperations = new ArrayList<Operations>();
-        ArrayList<BankingOperation> bankingOperations = new ArrayList<BankingOperation>();
+        ArrayList<Operation> validOperations = new ArrayList<Operation>();
+        ArrayList<Tuple<Operation, Card>> bankingOperations = new ArrayList<Tuple<Operation, Card>>();
 
-        return new BankAccount(ibanCode, balance, validCards, validOperations, bankingOperations);
+        BankAccount bankAccount = new BankAccount(ibanCode, balance, validCards, validOperations, bankingOperations);
+        bankAccount.setId(idBankAccount);
+        return bankAccount;
     }
 }
