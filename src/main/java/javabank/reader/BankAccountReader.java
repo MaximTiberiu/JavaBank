@@ -23,10 +23,14 @@ public class BankAccountReader implements Reader<BankAccount> {
         System.out.print("IBAN Code: ");
         ibanCode = bufferedReader.readLine();
 
+        double balance;
+        System.out.println("Balance: ");
+        balance = Double.parseDouble(bufferedReader.readLine());
+
         ArrayList<Card> validCards = new ArrayList<Card>();
         ArrayList<Operations> validOperations = new ArrayList<Operations>();
         ArrayList<BankingOperation> bankingOperations = new ArrayList<BankingOperation>();
 
-        return new BankAccount(ibanCode, validCards, validOperations, bankingOperations);
+        return new BankAccount(ibanCode, balance, validCards, validOperations, bankingOperations);
     }
 }
