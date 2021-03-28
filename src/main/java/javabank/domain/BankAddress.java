@@ -118,8 +118,14 @@ public class BankAddress {
      */
     @Override
     public String toString() {
-        return "Address: " + number + " " + streetName + ", " + cityName + ", " + countyName
-                + ", " + countryName + ", P.O. " + postalCode;
+        return "BankAddress{" +
+                "streetName='" + streetName + '\'' +
+                ", number=" + number +
+                ", cityName='" + cityName + '\'' +
+                ", countyName='" + countyName + '\'' +
+                ", postalCode=" + postalCode +
+                ", countryName='" + countryName + '\'' +
+                '}';
     }
 
     /**
