@@ -1,9 +1,10 @@
 package javabank.reader;
 
 import javabank.domain.ClientCredentials;
+import javabank.utils.security.PasswordEncryption;
 
 import java.io.IOException;
-import java.text.ParseException;
+
 
 public class ClientCredentialsReader implements Reader<ClientCredentials> {
     /**
@@ -24,7 +25,9 @@ public class ClientCredentialsReader implements Reader<ClientCredentials> {
         System.out.print("Password: ");
         password = bufferedReader.readLine();
 
-        ClientCredentials clientCredentials = new ClientCredentials(username, password);
+        String salt = PasswordEncryption.getSalt(30);
+
+        ClientCredentials clientCredentials = new ClientCredentials(username, password, salt);
         clientCredentials.setId(idClientCredentials);
         return clientCredentials;
     }
