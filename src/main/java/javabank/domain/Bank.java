@@ -65,6 +65,13 @@ public class Bank extends Entity<Long>{
     }
 
     /**
+     * @return String, representing the telephone number of the HQ
+     */
+    public String getHqTelephoneNumber() {
+        return hqTelephoneNumber;
+    }
+
+    /**
      * @param hqTelephoneNumber String, representing the new telephone number of the HQ
      */
     public void setHqTelephoneNumber(String hqTelephoneNumber) {
