@@ -3,7 +3,7 @@ package javabank.domain;
 import java.io.Serializable;
 
 public class Entity<ID> implements Serializable {
-    private static final long serialVersionUID = 7331115341259248461L;
+    private static final long serialVersionUID = 3016605240731555842L;
     private ID id;
 
     /**
