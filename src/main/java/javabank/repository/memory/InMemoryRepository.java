@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InMemoryRepository<ID, E extends Entity<ID>> implements AbstractRepository<ID, E> {
-    private Validator<E> validator;
+    private final Validator<E> validator;
     protected Map<ID, E> entities;
 
     /**
