@@ -51,7 +51,7 @@
 * Gradle - Build Automation Tool.
 
 ## Status
-Project is: *in process of developing the first stage*
+Project is: *in process of developing the second stage*
 
 ## License
 The project is licensed under the terms of the **MIT** license.
