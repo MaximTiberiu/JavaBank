@@ -1,5 +1,7 @@
 package javabank.domain;
 
+import javabank.repository.memory.InMemoryRepository;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -10,19 +12,19 @@ public class Client extends Entity<Long> {
     private String telephoneNumber;
     private String email;
     private ClientCredentials credentials;
-    private ArrayList<BankAccount> bankAccounts;
+    private InMemoryRepository<Long, BankAccount> bankAccounts;
 
     /**
      * Constructor that creates a new Client
-     * @param firstName String,                     representing the first name of the Client
-     * @param lastName String,                      representing the last name of the Client
-     * @param CNP String,                           representing the CNP (Identity Card) of the Client
-     * @param telephoneNumber String,               representing the telephone number of the Client
-     * @param email String,                         representing the email address of the Client
-     * @param credentials ClientCredentials,        representing the Client's credentials
-     * @param bankAccounts ArrayList<BankAccount>,  representing a list of Client's bank accounts
+     * @param firstName String,                                     representing the first name of the Client
+     * @param lastName String,                                      representing the last name of the Client
+     * @param CNP String,                                           representing the CNP (Identity Card) of the Client
+     * @param telephoneNumber String,                               representing the telephone number of the Client
+     * @param email String,                                         representing the email address of the Client
+     * @param credentials ClientCredentials,                        representing the Client's credentials
+     * @param bankAccounts InMemoryRepository<Long, BankAccount>,   representing a list of Client's bank accounts
      */
-    public Client(String firstName, String lastName, String CNP, String telephoneNumber, String email, ClientCredentials credentials, ArrayList<BankAccount> bankAccounts) {
+    public Client(String firstName, String lastName, String CNP, String telephoneNumber, String email, ClientCredentials credentials, InMemoryRepository<Long, BankAccount> bankAccounts) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.CNP = CNP;
@@ -117,16 +119,16 @@ public class Client extends Entity<Long> {
     }
 
     /**
-     * @return ArrayList<BankAccount>, representing a list of Client's bank accounts
+     * @return InMemoryRepository<Long, BankAccount>, representing a repository of Client's bank accounts
      */
-    public ArrayList<BankAccount> getBankAccounts() {
+    public InMemoryRepository<Long, BankAccount> getBankAccounts() {
         return bankAccounts;
     }
 
     /**
-     * @param bankAccounts ArrayList<BankAccount>, representing a new list of Client's bank accounts
+     * @param bankAccounts InMemoryRepository<Long, BankAccount>, representing a new repository of Client's bank accounts
      */
-    public void setBankAccounts(ArrayList<BankAccount> bankAccounts) {
+    public void setBankAccounts(InMemoryRepository<Long, BankAccount> bankAccounts) {
         this.bankAccounts = bankAccounts;
     }
 
