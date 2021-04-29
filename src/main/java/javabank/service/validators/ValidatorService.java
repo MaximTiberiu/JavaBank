@@ -6,14 +6,14 @@ public interface ValidatorService<T> {
     /**
      * Abstract method that validates a T entity upon adding
      * @param entity T, representing the entity to be validated
-     * @throws ValidationException, an excelption
+     * @throws ValidationException, an exception
      */
     void validateAdd(T entity) throws ValidationException;
 
     /**
      * Abstract method that validates a T entity upon deletion
      * @param entity T, representing the entity to be validated
-     * @throws ValidationException, an excelption
+     * @throws ValidationException, an exception
      */
     void validateDelete(T entity) throws ValidationException;
 }
