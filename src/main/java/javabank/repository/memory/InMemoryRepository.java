@@ -66,10 +66,8 @@ public class InMemoryRepository<ID, E extends Entity<ID>> implements AbstractRep
         if (entities.get(entity.getId()) != null) {
             return entity;
         }
-        else {
-            entities.put(entity.getId(), entity);
-            return null;
-        }
+        else entities.put(entity.getId(), entity);
+        return null;
     }
 
     /**
