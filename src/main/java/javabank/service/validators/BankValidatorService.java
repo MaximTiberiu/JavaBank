@@ -8,7 +8,7 @@ public class BankValidatorService implements ValidatorService<Bank> {
     /**
      * Abstract method that validates a Bank entity upon adding
      * @param entity Bank, representing the entity to be validated
-     * @throws ValidationException, an excelption
+     * @throws ValidationException, an exception
      */
     @Override
     public void validateAdd(Bank entity) throws ValidationException {
@@ -20,7 +20,7 @@ public class BankValidatorService implements ValidatorService<Bank> {
     /**
      * Abstract method that validates a Bank entity upon deletion
      * @param entity Bank, representing the entity to be validated
-     * @throws ValidationException, an excelption
+     * @throws ValidationException, an exception
      */
     @Override
     public void validateDelete(Bank entity) throws ValidationException {

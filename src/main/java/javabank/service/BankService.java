@@ -14,7 +14,7 @@ public class BankService {
 
     /**
      * Constructor that creates a new BankService
-     * @param bankInMemoryRepository InMemoryRepository<Bank>, representing the Repository that handles the Bank data
+     * @param bankInMemoryRepository InMemoryRepository<Long, Bank>, representing the Repository that handles the Bank data
      */
     public BankService(InMemoryRepository<Long, Bank> bankInMemoryRepository) {
         this.bankInMemoryRepository = bankInMemoryRepository;
@@ -34,6 +34,13 @@ public class BankService {
         return bank;
     }
 
+    /**
+     * Method that deletes a Bank
+     * @param bankIDParam, representing the ID of the Bank to be deleted
+     * @return  null,           if the Bank to be deleted doesn't exist
+     *          non-null Bank,  otherwise: representing the Bank that was deleted
+     * @throws ValidationException, if the Bank to be deleted doesn't exist
+     */
     public Bank deleteBank(Long bankIDParam) throws ValidationException {
         Bank bank = bankInMemoryRepository.delete(bankIDParam);
         bankValidatorService.validateDelete(bank);
