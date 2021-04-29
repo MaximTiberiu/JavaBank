@@ -3,24 +3,26 @@ package javabank.domain;
 import javabank.domain.banking.operations.Operation;
 import javabank.repository.memory.InMemoryRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class BankAccount extends Entity<Long>{
     private String ibanCode;
     private double balance;
     private InMemoryRepository<Long, Card> validCards;
-    private InMemoryRepository<Long, Operation> validOperations;
+    private List<Class<? extends Operation>> validOperations;
     private InMemoryRepository<Long, Tuple<Operation, Card>> bankingOperations;
 
     /**
      * Constructor that creates a new BankAccount
-     * @param ibanCode String,                                      representing the IBAN code of the BankAccount
-     * @param balance double,                                       representing the balance of the BankAccount
-     * @param validCards InMemoryRepository<Long, Card>,                           representing a list of valid cards associated with the BankAccount
-     * @param validOperations InMemoryRepository<Long, Operation>,                representing a list of valid operations associated with the BankAccount
-     * @param bankingOperations InMemoryRepository<Long, Tuple<Operation, Card>>,  representing a list of performed BankingOperation (history of BankingOperations) by the Client
+     * @param ibanCode String,                                                      representing the IBAN code of the BankAccount
+     * @param balance double,                                                       representing the balance of the BankAccount
+     * @param validCards InMemoryRepository<Long, Card>,                            representing a list of valid cards associated with the BankAccount
+     * @param validOperations List<Class<? extends Operation>>,                     representing a list of valid operations associated with the BankAccount
+     * @param bankingOperations InMemoryRepository<Long, Tuple<Operation, Card>>,   representing a list of performed BankingOperation (history of BankingOperations) by the Client
      */
-    public BankAccount(String ibanCode, double balance, InMemoryRepository<Long, Card> validCards, InMemoryRepository<Long, Operation> validOperations, InMemoryRepository<Long, Tuple<Operation, Card>> bankingOperations) {
+    public BankAccount(String ibanCode, double balance, InMemoryRepository<Long, Card> validCards, List<Class<? extends Operation>> validOperations, InMemoryRepository<Long, Tuple<Operation, Card>> bankingOperations) {
         this.ibanCode = ibanCode;
         this.balance = balance;
         this.validCards = validCards;
@@ -71,16 +73,16 @@ public class BankAccount extends Entity<Long>{
     }
 
     /**
-     * @return InMemoryRepository<Long, Operation>, representing a repository of valid operations associated with the BankAccount
+     * @return IList<Class<? extends Operation>>, representing a repository of valid operations associated with the BankAccount
      */
-    public InMemoryRepository<Long, Operation> getValidOperations() {
+    public List<Class<? extends Operation>> getValidOperations() {
         return validOperations;
     }
 
     /**
-     * @param validOperations InMemoryRepository<Long, Operation>, representing a new repository of valid operations associated with the BankAccount
+     * @param validOperations List<Class<? extends Operation>>, representing a new repository of valid operations associated with the BankAccount
      */
-    public void setValidOperations(InMemoryRepository<Long, Operation> validOperations) {
+    public void setValidOperations(List<Class<? extends Operation>> validOperations) {
         this.validOperations = validOperations;
     }
 

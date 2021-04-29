@@ -1,9 +1,11 @@
 package javabank.domain.banking.operations;
 
+import javabank.domain.Entity;
+
 import java.util.Date;
 import java.util.Objects;
 
-public class Operation {
+public class Operation extends Entity<Long> {
     private Date operationDate;
     private String operationDetails;
     private boolean successfulOperation;
@@ -68,6 +70,7 @@ public class Operation {
     @Override
     public String toString() {
         return "Operation{" +
+                "ID=" + getId() + '\'' +
                 "operationDate=" + operationDate +
                 ", operationDetails='" + operationDetails + '\'' +
                 ", successfulOperation=" + successfulOperation +
