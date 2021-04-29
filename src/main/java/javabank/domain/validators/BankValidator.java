@@ -7,6 +7,8 @@ import javabank.utils.validators.TelephoneNumberValidator;
 import javabank.utils.validators.WebsiteValidator;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class BankValidator implements Validator<Bank> {
     /**
@@ -25,6 +27,7 @@ public class BankValidator implements Validator<Bank> {
         if (entity.getBankName().matches("^[a-zA-Z\\s]*$")) {
             errors += "The bank name can't be an empty value and it can't contain digits!\n";
         }
+
         try {
             BankAddressValidator bankAddressValidator = new BankAddressValidator();
             bankAddressValidator.validate(entity.getHeadquartersAddress());
@@ -43,12 +46,8 @@ public class BankValidator implements Validator<Bank> {
             errors += "The URL address is invalid!";
         }
 
-        if (errors.length() > 0) {
-            throw new ValidationException(errors);
-        }
-
         try {
-            ArrayList<BankBranch> bankBranches = entity.getBankBranches();
+            List<BankBranch> bankBranches = new ArrayList<BankBranch>((Collection<? extends BankBranch>) entity.getBankBranches().findAll());
             BankBranchValidator bankBranchValidator = new BankBranchValidator();
 
             for (BankBranch bankBranch : bankBranches) {
