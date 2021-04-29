@@ -12,6 +12,7 @@ import javabank.repository.memory.InMemoryRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BankAccountReader implements Reader<BankAccount> {
 
@@ -35,7 +36,7 @@ public class BankAccountReader implements Reader<BankAccount> {
         balance = Double.parseDouble(bufferedReader.readLine());
 
         InMemoryRepository<Long, Card> validCards = new InMemoryRepository<>(new CardValidator());
-        InMemoryRepository<Long, Operation> validOperations = new InMemoryRepository<>(new OperationValidator());
+        List<Class<? extends Operation>> validOperations = new ArrayList<Class<? extends Operation>>();
 
         InMemoryRepository<Long, Tuple<Operation, Card>> bankingOperations = new InMemoryRepository<>(BankAccountValidator::validateBankingOperation);
 

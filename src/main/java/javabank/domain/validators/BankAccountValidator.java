@@ -36,12 +36,6 @@ public class BankAccountValidator implements Validator<BankAccount> {
                 cardValidator.validate(card);
             }
 
-            List<Operation> validOperation = new ArrayList<>((Collection<? extends Operation>) entity.getValidOperations().findAll());
-            OperationValidator operationValidator = new OperationValidator();
-            for (Operation operation : validOperation) {
-                operationValidator.validate(operation);
-            }
-
             List<Tuple<Operation, Card>> bankingOperations = new ArrayList<>((Collection<? extends Tuple<Operation, Card>>) entity.getBankingOperations().findAll());
             Validator<Tuple<Operation, Card>> bankingOperationValidator = BankAccountValidator::validateBankingOperation;
             for (Tuple<Operation, Card> bankingOperation : bankingOperations) {
