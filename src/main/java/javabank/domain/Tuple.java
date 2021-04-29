@@ -7,7 +7,7 @@ import java.util.Objects;
  * @param <E1>, tuple first entity type
  * @param <E2>, tuple second entity type
  */
-public class Tuple<E1, E2> {
+public class Tuple<E1, E2> extends Entity<Long> {
     private E1 e1;
     private E2 e2;
 
@@ -55,6 +55,7 @@ public class Tuple<E1, E2> {
     @Override
     public String toString() {
         return "Tuple{" +
+                "ID='" + getId() + '\'' +
                 "e1=" + e1 +
                 ", e2=" + e2 +
                 '}';
