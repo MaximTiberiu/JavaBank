@@ -3,6 +3,8 @@ package javabank.reader;
 import javabank.domain.BankAccount;
 import javabank.domain.Client;
 import javabank.domain.ClientCredentials;
+import javabank.domain.validators.BankAccountValidator;
+import javabank.repository.memory.InMemoryRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ public class ClientReader implements Reader<Client>{
         ClientCredentialsReader clientCredentialsReader = new ClientCredentialsReader();
         credentials = clientCredentialsReader.read();
 
-        ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
+        InMemoryRepository<Long, BankAccount> bankAccounts = new InMemoryRepository<>(new BankAccountValidator());
 
         Client client = new Client(firstName, lastName, CNP, telephoneNumber, email, credentials, bankAccounts);
         client.setId(idClient);

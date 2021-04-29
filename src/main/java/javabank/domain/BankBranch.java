@@ -1,5 +1,7 @@
 package javabank.domain;
 
+import javabank.repository.memory.InMemoryRepository;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -9,18 +11,18 @@ public class BankBranch extends Entity<Long>{
     private BankAddress bankAddress;
     private String bankTelephoneNumber;
     private String bankEmail;
-    private ArrayList<Client> clients;
+    private InMemoryRepository<Long, Client> clients;
 
     /**
      *
-     * @param bicCode String,               representing the BIC Code of the BankBranch
-     * @param swiftCode String,             representing the SWIFT Code of the BankBranch
-     * @param bankAddress BankAddress,      representing the address of the BankBranch
-     * @param bankTelephoneNumber String,   representing the telephone number of the BankBranch
-     * @param bankEmail String,             representing the email address of the BankBranch
-     * @param clients ArrayList<Client>,    representing a list of the bank's clients
+     * @param bicCode String,                           representing the BIC Code of the BankBranch
+     * @param swiftCode String,                         representing the SWIFT Code of the BankBranch
+     * @param bankAddress BankAddress,                  representing the address of the BankBranch
+     * @param bankTelephoneNumber String,               representing the telephone number of the BankBranch
+     * @param bankEmail String,                         representing the email address of the BankBranch
+     * @param clients InMemoryRepository<Long, Client>, representing a repository of the bank's clients
      */
-    public BankBranch(String bicCode, String swiftCode, BankAddress bankAddress, String bankTelephoneNumber, String bankEmail,ArrayList<Client> clients) {
+    public BankBranch(String bicCode, String swiftCode, BankAddress bankAddress, String bankTelephoneNumber, String bankEmail, InMemoryRepository<Long, Client> clients) {
         this.bicCode = bicCode;
         this.swiftCode = swiftCode;
         this.bankAddress = bankAddress;
@@ -100,16 +102,16 @@ public class BankBranch extends Entity<Long>{
     }
 
     /**
-     * @return ArrayList<Client>, representing a list of the bank's clients
+     * @return InMemoryRepository<Long, Client>, representing a repository of the bank's clients
      */
-    public ArrayList<Client> getClients() {
+    public InMemoryRepository<Long, Client> getClients() {
         return clients;
     }
 
     /**
-     * @param clients ArrayList<Client>, representing a new list of the bank's clients
+     * @param clients InMemoryRepository<Long, Client>, representing a new repository of the bank's clients
      */
-    public void setClients(ArrayList<Client> clients) {
+    public void setClients(InMemoryRepository<Long, Client> clients) {
         this.clients = clients;
     }
 

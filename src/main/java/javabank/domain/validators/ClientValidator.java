@@ -8,6 +8,8 @@ import javabank.utils.validators.TelephoneNumberValidator;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class ClientValidator implements Validator<Client> {
     /**
@@ -43,7 +45,7 @@ public class ClientValidator implements Validator<Client> {
         // TODO: client credentials validation
 
         try {
-            ArrayList<BankAccount> bankAccounts = entity.getBankAccounts();
+            List<BankAccount> bankAccounts = new ArrayList<BankAccount>((Collection<? extends BankAccount>) entity.getBankAccounts().findAll());
             BankAccountValidator bankAccountValidator = new BankAccountValidator();
 
             for (BankAccount bankAccount: bankAccounts) {

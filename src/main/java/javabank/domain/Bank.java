@@ -1,6 +1,7 @@
 package javabank.domain;
 
-import java.util.ArrayList;
+import javabank.repository.memory.InMemoryRepository;
+
 import java.util.Objects;
 
 public class Bank extends Entity<Long>{
@@ -9,7 +10,7 @@ public class Bank extends Entity<Long>{
     protected String hqTelephoneNumber;
     protected String hqEmail;
     protected String website;
-    private ArrayList<BankBranch> bankBranches;
+    private InMemoryRepository<Long, BankBranch> bankBranches;
 
     /**
      * Default constructor that creates a new Bank
@@ -20,14 +21,14 @@ public class Bank extends Entity<Long>{
 
     /**
      * Constructor that creates a new Bank
-     * @param bankName String,                      representing the name of the bank
-     * @param headquartersAddress BankAddress,      representing the address of the HQ
-     * @param hqTelephoneNumber String,             representing the telephone number of the HQ
-     * @param hqEmail String,                       representing the email address of the HQ
-     * @param website String,                       representing the bank website
-     * @param bankBranches ArrayList<BankBranch>,   representing a list of bank branches
+     * @param bankName String,                                      representing the name of the bank
+     * @param headquartersAddress BankAddress,                      representing the address of the HQ
+     * @param hqTelephoneNumber String,                             representing the telephone number of the HQ
+     * @param hqEmail String,                                       representing the email address of the HQ
+     * @param website String,                                       representing the bank website
+     * @param bankBranches InMemoryRepository<Long, BankBranch>,    representing a repository of bank branches
      */
-    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String hqEmail, String website, ArrayList<BankBranch> bankBranches) {
+    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String hqEmail, String website, InMemoryRepository<Long, BankBranch> bankBranches) {
         this.bankName = bankName;
         this.headquartersAddress = headquartersAddress;
         this.hqTelephoneNumber = hqTelephoneNumber;
@@ -107,16 +108,16 @@ public class Bank extends Entity<Long>{
     }
 
     /**
-     * @return ArrayList<BankBranch>, representing a list of bank's clients
+     * @return InMemoryRepository<Long, BankBranch>, representing a repository of bank's clients
      */
-    public ArrayList<BankBranch> getBankBranches() {
+    public InMemoryRepository<Long, BankBranch> getBankBranches() {
         return bankBranches;
     }
 
     /**
-     * @param bankBranches ArrayList<BankBranch>, representing a new list of bank's clients
+     * @param bankBranches InMemoryRepository<Long, BankBranch>, representing a new repository of bank's clients
      */
-    public void setBankBranches(ArrayList<BankBranch> bankBranches) {
+    public void setBankBranches(InMemoryRepository<Long, BankBranch> bankBranches) {
         this.bankBranches = bankBranches;
     }
 

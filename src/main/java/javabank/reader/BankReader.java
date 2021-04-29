@@ -3,9 +3,10 @@ package javabank.reader;
 import javabank.domain.Bank;
 import javabank.domain.BankAddress;
 import javabank.domain.BankBranch;
+import javabank.domain.validators.BankBranchValidator;
+import javabank.repository.memory.InMemoryRepository;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class BankReader implements Reader<Bank>{
     /**
@@ -38,7 +39,7 @@ public class BankReader implements Reader<Bank>{
         System.out.print("Website: ");
         website = bufferedReader.readLine();
 
-        ArrayList<BankBranch> bankBranches = new ArrayList<BankBranch>();
+        InMemoryRepository<Long, BankBranch> bankBranches = new InMemoryRepository<>(new BankBranchValidator());
 
         Bank bank = new Bank(bankName, headquartersAddress, hqTelephoneNumber, hqEmail, website, bankBranches);
         bank.setId(idBank);
