@@ -7,6 +7,8 @@ import javabank.utils.validators.TelephoneNumberValidator;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class BankBranchValidator implements Validator<BankBranch> {
     /**
@@ -42,7 +44,7 @@ public class BankBranchValidator implements Validator<BankBranch> {
         }
 
         try {
-            ArrayList<Client> clients = entity.getClients();
+            List<Client> clients = new ArrayList<Client>((Collection<? extends Client>) entity.getClients().findAll());
             ClientValidator clientValidator = new ClientValidator();
 
             for (Client client : clients) {

@@ -3,6 +3,8 @@ package javabank.reader;
 import javabank.domain.BankAddress;
 import javabank.domain.BankBranch;
 import javabank.domain.Client;
+import javabank.domain.validators.ClientValidator;
+import javabank.repository.memory.InMemoryRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,7 +40,7 @@ public class BankBranchReader implements Reader<BankBranch> {
         System.out.print("Email address: ");
         bankEmail = bufferedReader.readLine();
 
-        ArrayList<Client> clients = new ArrayList<Client>();
+        InMemoryRepository<Long, Client> clients = new InMemoryRepository<>(new ClientValidator());
 
         BankBranch bankBranch =  new BankBranch(bicCode, swiftCode, bankAddress, bankTelephoneNumber, bankEmail, clients);
         bankBranch.setId(idBankBranch);
