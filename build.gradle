@@ -21,6 +21,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testCompile 'junit:junit:4.12'
     compile 'commons-validator:commons-validator:1.7'
+    compile 'com.opencsv:opencsv:5.4'
 }
 
 test {
