@@ -1,6 +1,5 @@
 package javabank.domain.validators;
 
-
 import java.text.ParseException;
 
 public interface Validator<E> {

@@ -24,7 +24,7 @@ public class BankValidator implements Validator<Bank> {
         if (entity.getId() < 0 ) {
             errors += "The ID of the BankAddress can't be a negative number!\n";
         }
-        if (entity.getBankName().matches("^[a-zA-Z\\s]*$")) {
+        if (!entity.getBankName().matches("^[a-zA-Z\\s]*$")) {
             errors += "The bank name can't be an empty value and it can't contain digits!\n";
         }
 

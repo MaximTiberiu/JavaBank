@@ -24,7 +24,7 @@ public class BankBranchValidator implements Validator<BankBranch> {
         if (entity.getBicCode().matches("[ ]*")) {
             errors += "The BIC code can't be an empty value!\n";
         }
-        if (entity.getSwiftCode().matches("[ ]*]")) {
+        if (entity.getSwiftCode().matches("[ ]*")) {
             errors += "The SWIFT code can't be an empty value!\n";
         }
 

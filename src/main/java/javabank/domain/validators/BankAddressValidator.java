@@ -31,7 +31,7 @@ public class BankAddressValidator implements Validator<BankAddress> {
         if (entity.getPostalCode() < 100000 || entity.getPostalCode() > 999999) {
             errors += "The postal code of the BankAddress must be a 6-digit positive number!\n";
         }
-        if (entity.getCountryName().matches("^[a-zA-Z\\s]*$")) {
+        if (!entity.getCountryName().matches("^[a-zA-Z\\s]*$")) {
             errors += "The country name of the BankAddress can't be an empty value and it can't contain digits!";
         }
 
