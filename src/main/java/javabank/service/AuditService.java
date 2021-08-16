@@ -22,7 +22,7 @@ public class AuditService {
 
     public void write(String action) {
         try {
-            File file = new File("src/main/resources/audit/audit.csv");
+            File file = new File("src/main/resources/audit/Audit.csv");
 
             // creates the audit file if it doesn't exist
             if (!file.exists()) {
@@ -52,7 +52,7 @@ public class AuditService {
 
     public void write(String action, Long clientID) {
         try {
-            File file = new File("src/main/resources/audit/audit.csv");
+            File file = new File("src/main/resources/audit/Audit.csv");
 
             // creates the audit file if it doesn't exist
             if (!file.exists()) {

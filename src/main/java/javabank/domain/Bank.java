@@ -1,5 +1,8 @@
 package javabank.domain;
 
+import javabank.repository.database.BankBranchDatabaseRepository;
+import javabank.repository.file.BankBranchInFileRepository;
+import javabank.repository.file.BankInFileRepository;
 import javabank.repository.memory.InMemoryRepository;
 
 import java.util.Objects;
@@ -10,7 +13,7 @@ public class Bank extends Entity<Long>{
     protected String hqTelephoneNumber;
     protected String hqEmail;
     protected String website;
-    private InMemoryRepository<Long, BankBranch> bankBranches;
+    private BankBranchInFileRepository bankBranches;
 
     /**
      * Default constructor that creates a new Bank
@@ -21,14 +24,15 @@ public class Bank extends Entity<Long>{
 
     /**
      * Constructor that creates a new Bank
-     * @param bankName String,                                      representing the name of the bank
-     * @param headquartersAddress BankAddress,                      representing the address of the HQ
-     * @param hqTelephoneNumber String,                             representing the telephone number of the HQ
-     * @param hqEmail String,                                       representing the email address of the HQ
-     * @param website String,                                       representing the bank website
-     * @param bankBranches InMemoryRepository<Long, BankBranch>,    representing a repository of bank branches
+     * @param bankName String,                          representing the name of the bank
+     * @param headquartersAddress BankAddress,          representing the address of the HQ
+     * @param hqTelephoneNumber String,                 representing the telephone number of the HQ
+     * @param hqEmail String,                           representing the email address of the HQ
+     * @param website String,                           representing the bank website
+     * @param bankBranches BankBranchInFileRepository,  representing a repository of bank branches
      */
-    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String hqEmail, String website, InMemoryRepository<Long, BankBranch> bankBranches) {
+    public Bank(String bankName, BankAddress headquartersAddress, String hqTelephoneNumber, String hqEmail, String website,
+                BankBranchInFileRepository bankBranches) {
         this.bankName = bankName;
         this.headquartersAddress = headquartersAddress;
         this.hqTelephoneNumber = hqTelephoneNumber;
@@ -108,16 +112,16 @@ public class Bank extends Entity<Long>{
     }
 
     /**
-     * @return InMemoryRepository<Long, BankBranch>, representing a repository of bank's clients
+     * @return BankBranchDatabaseRepository, representing a repository of bank's clients
      */
-    public InMemoryRepository<Long, BankBranch> getBankBranches() {
+    public BankBranchInFileRepository getBankBranches() {
         return bankBranches;
     }
 
     /**
-     * @param bankBranches InMemoryRepository<Long, BankBranch>, representing a new repository of bank's clients
+     * @param bankBranches BankBranchDatabaseRepository, representing a new repository of bank's clients
      */
-    public void setBankBranches(InMemoryRepository<Long, BankBranch> bankBranches) {
+    public void setBankBranches(BankBranchInFileRepository bankBranches) {
         this.bankBranches = bankBranches;
     }
 

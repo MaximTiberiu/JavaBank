@@ -22,6 +22,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'commons-validator:commons-validator:1.7'
     compile 'com.opencsv:opencsv:5.4'
+    compile 'com.microsoft.sqlserver:mssql-jdbc:9.2.1.jre11'
 }
 
 test {

@@ -2,7 +2,6 @@ package javabank.domain;
 
 import javabank.repository.memory.InMemoryRepository;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class BankBranch extends Entity<Long>{

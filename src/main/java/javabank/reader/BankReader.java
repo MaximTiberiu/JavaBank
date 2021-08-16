@@ -4,6 +4,10 @@ import javabank.domain.Bank;
 import javabank.domain.BankAddress;
 import javabank.domain.BankBranch;
 import javabank.domain.validators.BankBranchValidator;
+import javabank.domain.validators.BankValidator;
+import javabank.repository.database.BankBranchDatabaseRepository;
+import javabank.repository.file.BankBranchInFileRepository;
+import javabank.repository.file.BankInFileRepository;
 import javabank.repository.memory.InMemoryRepository;
 
 import java.io.IOException;
@@ -39,7 +43,7 @@ public class BankReader implements Reader<Bank>{
         System.out.print("Website: ");
         website = bufferedReader.readLine();
 
-        InMemoryRepository<Long, BankBranch> bankBranches = new InMemoryRepository<>(new BankBranchValidator());
+        BankBranchInFileRepository bankBranches = new BankBranchInFileRepository("src/main/resources/CSV - InFileRepository/BankBranch.csv", new BankBranchValidator());
 
         Bank bank = new Bank(bankName, headquartersAddress, hqTelephoneNumber, hqEmail, website, bankBranches);
         bank.setId(idBank);

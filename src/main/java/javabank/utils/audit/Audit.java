@@ -6,9 +6,7 @@ public enum Audit {
     STOP_APP,
 
     // Login & Signup
-    LOGIN_ADMIN,
-    LOGIN_CLIENT,
-    SIGNUP_CLIENT,
+    LOGIN_ADMIN, LOGIN_CLIENT, SIGNOUT_ADMIN, SIGNOUT_CLIENT,
 
     // Admin permissions
     ADD_BANK, DELETE_BANK, EDIT_BANK, // Bank

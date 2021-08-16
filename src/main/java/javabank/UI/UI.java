@@ -1,11 +1,28 @@
 package javabank.UI;
 
+import javabank.domain.validators.BankBranchValidator;
+import javabank.domain.validators.BankValidator;
+import javabank.repository.database.BankAddressDatabaseRepository;
+import javabank.repository.file.BankBranchInFileRepository;
+import javabank.repository.file.BankInFileRepository;
+import javabank.service.AuditService;
+import javabank.utils.audit.Audit;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class UI {
+//    String url = "jdbc:sqlserver://DESKTOP-OSUR0CD\\SQLEXPRESS;database=JavaBank";
+//    String username = "admin";
+//    String password = "javabank123456";
+//    BankAddressDatabaseRepository bankAddressDatabaseRepository = new BankAddressDatabaseRepository(url, username, password);
+//    BankBranchInFileRepository bankBranchInFileRepository = new BankBranchInFileRepository("src/main/resources/CSV - InFileRepository/BankBranch.csv", new BankBranchValidator());
+//    BankInFileRepository bankInFileRepository = new BankInFileRepository("src/main/java/javabank/repository/file/BankInFileRepository.java", new BankValidator(), bankAddressDatabaseRepository, bankBranchInFileRepository);
+
+    AuditService auditService = AuditService.getInstance();
+    Audit audit;
+
     private void mainMenu() {
         System.out.println("-------------------------------------------------");
         System.out.println("\t\t\t\t\tJavaBank");
@@ -38,6 +55,7 @@ public class UI {
     }
 
     public void startApp() throws IOException {
+        auditService.write(Audit.START_APP.toString());
         int command;
         while(true) {
             try {
@@ -54,6 +72,7 @@ public class UI {
                         createAccount();
                         return;
                     case 3:
+                        auditService.write(Audit.STOP_APP.toString());
                         return;
                 }
             }
@@ -78,7 +97,7 @@ public class UI {
                         // loginClient();
                         return;
                     case 2:
-                        // loginAdmin();
+                        loginAdmin();
                         return;
                     case 3:
                         startApp();
@@ -92,6 +111,7 @@ public class UI {
             }
         }
     }
+
 
     private void createAccount() throws IOException {
         int command;
@@ -119,4 +139,25 @@ public class UI {
         }
     }
 
+    private void loginAdmin() throws IOException {
+        String username, password;
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("-------------------------------------------------");
+        System.out.println("\t\t\t\t\tLogin as Admin");
+        System.out.println("-------------------------------------------------");
+        System.out.println("\n\nPlease enter the username and the password: ");
+
+        System.out.print("Username: ");
+        username = bufferedReader.readLine();
+        System.out.print("Passowrd: ");
+        password = bufferedReader.readLine();
+
+        if(username.equals("admin") && password.equals("javabank123456")) {
+            auditService.write(Audit.LOGIN_ADMIN.toString());
+            // adminPanel();
+        } else {
+            loginAdmin();
+        }
+    }
 }
